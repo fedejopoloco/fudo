@@ -1,0 +1,1 @@
+TCP o protocolo de control de transmisión es uno de los protocolos fundamentales de internet. Está ubicado en la capa de transporte y su objetivo es crear conexiones para intercambiar datos, asegurando que los datos se transmitan de forma segura y eficiente. 
