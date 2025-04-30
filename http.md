@@ -1,0 +1,1 @@
+HTTP o protocolo de transferencia de hipertexto es un protocolo de comunicación que permite la transferencia de información a través de archivos XML, HTML, JSON, etc. Es la manera en la que se comunica un navegador con un servidor web.
