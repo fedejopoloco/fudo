@@ -1,0 +1,84 @@
+openapi: 3.0.0
+info:
+  title: Product API
+  version: 1.0.0
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  parameters:
+    AcceptEncodingHeader:
+      name: Accept-Encoding
+      in: header
+      description: 'Specify acceptable content encoding (gzip, deflate)'
+      required: false
+      schema:
+        type: string
+        example: gzip
+
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+        nombre:
+          type: string
+
+paths:
+  /products:
+    post:
+      summary: Crear un nuevo producto
+      security:
+        - bearerAuth: [] 
+      parameters:
+        - $ref: '#/components/parameters/AcceptEncodingHeader'  # Añadido Accept-Encoding
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+              required:
+                - nombre
+      responses:
+        '201':
+          description: Producto creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '400':
+          description: Error de validación o JSON inválido
+
+  /products/{id}:
+    get:
+      summary: Obtener un producto por ID
+      security:
+        - bearerAuth: [] 
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/AcceptEncodingHeader'  # Añadido Accept-Encoding
+      responses:
+        '200':
+          description: Producto encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Producto no encontrado
+
+security:
+  - bearerAuth: []  # Aplica la seguridad globalmente
