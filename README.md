@@ -56,7 +56,6 @@ docker-compose build
 docker-compose up
 ```
 ## 📚 Endpoints disponibles
-https://www.postman.com/fprospitti/federico-prospitti/collection/yukn6l3/fudo
 
 | Método | Ruta            | Descripción                      | Autenticación |
 | ------ | --------------- | -------------------------------- | ------------- |
@@ -65,5 +64,8 @@ https://www.postman.com/fprospitti/federico-prospitti/collection/yukn6l3/fudo
 | GET    | `/products/:id` | Obtener un producto por ID       | ✅ Sí          |
 | POST   | `/products`     | Crear un nuevo producto          | ✅ Sí          |
 
+La documentación de la API se encuentra en [OpenAPI](http://localhost:9292/docs/index.html)
+
+Coleccion: [Postman](https://www.postman.com/fprospitti/federico-prospitti/collection/yukn6l3/fudo)
 
 
