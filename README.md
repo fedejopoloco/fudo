@@ -63,7 +63,9 @@ docker-compose up
 | GET    | `/products/:id` | Obtener un producto por ID       | ✅ Sí         |`curl -X GET "http://localhost:9292/products/1" -H "Authorization: Bearer {token}"`                                                         |
 | POST   | `/products`     | Crear un nuevo producto          | ✅ Sí         |`curl -X POST "http://localhost:9292/products" -H "Authorization: Bearer {token}"  -d "{ \"nombre\": \"Mesa\"}"`                            |
 
-La documentación de la API se encuentra en [OpenAPI](http://localhost:9292/docs/index.html)
+Datos para obtener token: usuario: "admin", contraseña: "1234"
+
+La documentación de la API se encuentra en [OpenAPI](http://localhost:9292/docs/index.html) --> Previamente levantar local el proyecto.
 
 Coleccion: [Postman](https://www.postman.com/fprospitti/federico-prospitti/collection/yukn6l3/fudo)
 
