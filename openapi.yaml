@@ -30,13 +30,61 @@ components:
           type: string
 
 paths:
+  /auth:
+    post:
+      summary: Autenticar usuario y obtener token JWT
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                usuario:
+                  type: string
+                contraseña:
+                  type: string
+              required:
+                - usuario
+                - contraseña
+      responses:
+        '200':
+          description: Token JWT generado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+        '400':
+          description: JSON inválido
+        '401':
+          description: Credenciales inválidas
+
   /products:
+    get:
+      summary: Obtener todos los productos
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/AcceptEncodingHeader'
+      responses:
+        '200':
+          description: Lista de productos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+
     post:
       summary: Crear un nuevo producto
       security:
-        - bearerAuth: [] 
+        - bearerAuth: []
       parameters:
-        - $ref: '#/components/parameters/AcceptEncodingHeader'  # Añadido Accept-Encoding
+        - $ref: '#/components/parameters/AcceptEncodingHeader'
       requestBody:
         required: true
         content:
@@ -62,14 +110,14 @@ paths:
     get:
       summary: Obtener un producto por ID
       security:
-        - bearerAuth: [] 
+        - bearerAuth: []
       parameters:
         - name: id
           in: path
           required: true
           schema:
             type: integer
-        - $ref: '#/components/parameters/AcceptEncodingHeader'  # Añadido Accept-Encoding
+        - $ref: '#/components/parameters/AcceptEncodingHeader'
       responses:
         '200':
           description: Producto encontrado
@@ -81,4 +129,4 @@ paths:
           description: Producto no encontrado
 
 security:
-  - bearerAuth: []  # Aplica la seguridad globalmente
+  - bearerAuth: []

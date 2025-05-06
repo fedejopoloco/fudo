@@ -18,7 +18,7 @@ class App
         password = data["contraseña"]
 
         if username == USERNAME && password == PASSWORD
-          payload = { user: username, exp: Time.now.to_i + 3600 } # 1h de expiración
+          payload = { user: username, exp: Time.now.to_i + 3600 } 
           token = JWT.encode(payload, SECRET_KEY, 'HS256')
           return json_response(200, { token: token })
         else
