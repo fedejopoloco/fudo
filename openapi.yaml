@@ -28,6 +28,10 @@ components:
           type: integer
         nombre:
           type: string
+        estado:
+          type: string
+        fecha_creacion:
+          type: string
 
 paths:
   /auth:
