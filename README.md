@@ -8,7 +8,6 @@
 
 - API para crear, listar y buscar por id productos.
 - Autenticación basada en JSON Web Tokens (JWT).
-- Arquitectura modular utilizando Rack.
 - Opcionalmente desplegable con Docker y Docker Compose.
 
 ---
