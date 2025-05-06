@@ -57,15 +57,17 @@ docker-compose up
 ```
 ## 📚 Endpoints disponibles
 
-| Método | Ruta            | Descripción                      | Autenticación |
-| ------ | --------------- | -------------------------------- | ------------- |
-| POST   | `/auth`         | Obtener token                    | ❌ No          |
-| GET    | `/products`     | Listar todos los productos       | ✅ Sí          |
-| GET    | `/products/:id` | Obtener un producto por ID       | ✅ Sí          |
-| POST   | `/products`     | Crear un nuevo producto          | ✅ Sí          |
+| Método | Ruta            | Descripción                      | Autenticación | Curl                                                                                                                                     |
+| ------ | --------------- | -------------------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| POST   | `/auth`         | Obtener token                    | ❌ No         |`curl -X POST "http://localhost:9292/auth" -H "Content-Type: application/json" -d "{ \"usuario\": \"admin\", \"contraseña\": \"1234\" }"`   |
+| GET    | `/products`     | Listar todos los productos       | ✅ Sí         |`curl -X GET "http://localhost:9292/products" -H "Authorization: Bearer {token}" `                                                          |
+| GET    | `/products/:id` | Obtener un producto por ID       | ✅ Sí         |`curl -X GET "http://localhost:9292/products/1" -H "Authorization: Bearer {token}"`                                                         |
+| POST   | `/products`     | Crear un nuevo producto          | ✅ Sí         |`curl -X POST "http://localhost:9292/products" -H "Authorization: Bearer {token}"  -d "{ \"nombre\": \"Mesa\"}"`                            |
 
 La documentación de la API se encuentra en [OpenAPI](http://localhost:9292/docs/index.html)
 
 Coleccion: [Postman](https://www.postman.com/fprospitti/federico-prospitti/collection/yukn6l3/fudo)
 
+## 👤 Autor
+Federico Prospitti - federico1236@gmail.com
 
