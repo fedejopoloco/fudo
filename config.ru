@@ -24,12 +24,10 @@ Thread.new do
     now = Time.now.utc
 
     ProductStore.all_status_pending.each do |product|
-      if product[:estado] == 'PENDING'
-        created_at = Time.parse(product[:fecha_creacion])
-        if (now - created_at) >= 5
-          product[:estado] = 'CREATED'
-          puts "Producto ##{product[:id]} actualizado a CREATED"
-        end
+      created_at = Time.parse(product[:fecha_creacion])
+      if (now - created_at) >= 5
+        product[:estado] = 'CREATED'
+        puts "Producto ##{product[:id]} actualizado a CREATED"
       end
     end
   end
