@@ -101,8 +101,8 @@ paths:
               required:
                 - nombre
       responses:
-        '201':
-          description: Producto creado
+        '202':
+          description: Producto en proceso de creacion
           content:
             application/json:
               schema:

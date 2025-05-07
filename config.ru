@@ -23,7 +23,7 @@ Thread.new do
     sleep 1
     now = Time.now.utc
 
-    ProductStore.all.each do |product|
+    ProductStore.all_status_pending.each do |product|
       if product[:estado] == 'PENDING'
         created_at = Time.parse(product[:fecha_creacion])
         if (now - created_at) >= 5

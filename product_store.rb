@@ -11,11 +11,15 @@ class ProductStore
     end
 
     def self.find_by_id(id)
-      @@products.find { |product| product[:id] == id }
+      @@products.find { |product| product[:id] == id && product[:estado] == "CREATED" }
     end
 
-    def self.all
-      @@products
+    def self.all_status_pending
+      @@products.select { |product| product[:estado] == "PENDING" }
+    end
+
+    def self.all_status_created
+      @@products.select { |product| product[:estado] == "CREATED" }
     end
 
   end

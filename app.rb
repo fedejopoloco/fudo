@@ -39,13 +39,13 @@ class App
         end
 
         product = ProductStore.create(name)
-        json_response(201, product)
+        json_response(202, product)
 
       rescue JSON::ParserError
         json_response(400, { error: "JSON inválido" })
       end
     elsif req.get? && req.path == '/products'
-        return json_response(200, ProductStore.all)
+        return json_response(200, ProductStore.all_status_created)
     elsif req.get? && req.path =~ %r{^/products/(\d+)$}
       id = req.path.match(%r{^/products/(\d+)$})[1].to_i
       product = ProductStore.find_by_id(id)
